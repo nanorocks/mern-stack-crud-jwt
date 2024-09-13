@@ -12,9 +12,9 @@ app.use(morgan('tiny'))
 
 app.use('/api', [loggerMiddleware]);
 
-app.use('/api', userRoutes);
+// app.use('/api', userRoutes);
 
-connectDatabase();
+// connectDatabase();
 
 const path = require('path')
 
