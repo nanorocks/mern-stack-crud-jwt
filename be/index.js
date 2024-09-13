@@ -12,6 +12,11 @@ app.use('/api', userRoutes);
 
 connectDatabase();
 
+
+const path = require('path')
+
+app.use('/', express.static(path.join(__dirname, '../fe/out')))
+
 app.listen(config.port, () => {
     console.log(`Server is running on port ${config.port}`);
 });

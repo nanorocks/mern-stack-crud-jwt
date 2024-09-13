@@ -21,3 +21,7 @@ docker compose down
 npm i
 npm run dev # in be and in fe folder for dev work.
 ```
+
+### Deployment
+
+Ref. `https://render.com/pricing`

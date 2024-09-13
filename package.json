@@ -1,0 +1,13 @@
+{
+  "name": "mern-stack-crud-jwt",
+  "version": "1.0.0",
+  "description": "Deployment configuration, build and start",
+  "main": "index.js",
+  "scripts": {
+    "build": " npm --prefix fe install && npm --prefix be install && npm --prefix fe run build",
+    "start": "npm --prefix be run prod"
+  },
+  "keywords": [],
+  "author": "Andrej Nankov",
+  "license": "ISC"
+}

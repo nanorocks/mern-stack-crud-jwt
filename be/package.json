@@ -4,8 +4,8 @@
   "description": "Mongo, Exprex, React, Node Stack CRUD - JWT - example + Deployment",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "prod": "node server.js"
+    "dev": "nodemon index.js",
+    "prod": "node index.js"
   },
   "keywords": [],
   "author": "",
