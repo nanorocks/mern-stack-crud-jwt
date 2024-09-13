@@ -1,0 +1,19 @@
+{
+  "name": "mern-stack-crud-jwt",
+  "version": "1.0.0",
+  "description": "Mongo, Exprex, React, Node Stack CRUD - JWT - example + Deployment",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "prod": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2",
+    "nodemon": "^3.1.4"
+  }
+}
