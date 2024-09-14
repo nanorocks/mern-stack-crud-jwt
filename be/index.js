@@ -2,7 +2,8 @@ const express = require('express');
 const connectDatabase = require('./utils/database');
 const userRoutes = require('./routes/userRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
-const loggerMiddleware = require('./middlewares/loggerMiddleware');
+const productRoutes = require('./routes/productRoutes');
+const loggerMiddleware = require('./middleware/loggerMiddleware');
 const config = require('./config/config');
 const morgan = require('morgan')
 const app = express();
@@ -15,7 +16,8 @@ app.use('/api', [loggerMiddleware]);
 
 app.use('/api', [
     userRoutes,
-    categoryRoutes
+    categoryRoutes,
+    productRoutes
 ]);
 
 connectDatabase();
