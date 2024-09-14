@@ -3,10 +3,9 @@ const categoryController = require('../controllers/categoryController');
 const { protect } = require('../middleware/authMiddleware');
 const router = express.Router();
 
-
 router.get('/categories', categoryController.getAllCategories);
+router.get('/categories/:idOrSlug', categoryController.getCategoryByIdOrSlug);
 
-router.use(protect);
-router.post('/categories', categoryController.createCategory);
+router.post('/categories', protect, categoryController.createCategory);
 
 module.exports = router;

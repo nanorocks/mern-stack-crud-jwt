@@ -17,3 +17,14 @@ exports.getAllCategories = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+
+exports.getCategoryByIdOrSlug = async (req, res) => {
+    try {
+        const idOrSlug = req.params.idOrSlug;
+        const category = await categoryService.getCategoryByIdOrSlug(idOrSlug);
+        res.status(200).json(category);
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+};
