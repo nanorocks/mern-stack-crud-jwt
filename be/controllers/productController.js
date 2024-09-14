@@ -27,3 +27,24 @@ exports.getProductByIdOrSlug = async (req, res) => {
         res.status(404).json({ error: error.message });
     }
 };
+
+exports.deleteProductByIdOrSlug = async (req, res) => {
+    try {
+        const idOrSlug = req.params.idOrSlug;
+        const product = await productService.deleteProductByIdOrSlug(idOrSlug);
+        res.status(200).json({ message: 'Product deleted successfully', product });
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+};
+
+exports.updateProductByIdOrSlug = async (req, res) => {
+    try {
+        const idOrSlug = req.params.idOrSlug;
+        const updateData = req.body; // Assuming the updated data is passed in the body
+        const product = await productService.updateProductByIdOrSlug(idOrSlug, updateData);
+        res.status(200).json({ message: 'Product updated successfully', product });
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+};

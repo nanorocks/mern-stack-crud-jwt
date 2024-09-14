@@ -28,3 +28,24 @@ exports.getCategoryByIdOrSlug = async (req, res) => {
         res.status(404).json({ error: error.message });
     }
 };
+
+exports.deleteCategoryByIdOrSlug = async (req, res) => {
+    try {
+        const idOrSlug = req.params.idOrSlug;
+        const category = await categoryService.deleteCategoryByIdOrSlug(idOrSlug);
+        res.status(200).json({ message: 'Category deleted successfully', category });
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+};
+
+exports.updateCategoryByIdOrSlug = async (req, res) => {
+    try {
+        const idOrSlug = req.params.idOrSlug;
+        const updateData = req.body; // Assuming the updated data is passed in the body
+        const category = await categoryService.updateCategoryByIdOrSlug(idOrSlug, updateData);
+        res.status(200).json({ message: 'Category updated successfully', category });
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+};

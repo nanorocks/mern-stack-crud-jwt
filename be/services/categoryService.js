@@ -33,3 +33,47 @@ exports.getCategoryByIdOrSlug = async (idOrSlug) => {
     return category;
 };
 
+exports.deleteCategoryByIdOrSlug = async (idOrSlug) => {
+    let category;
+
+    // Check if the idOrSlug is a valid ObjectId
+    if (mongoose.Types.ObjectId.isValid(idOrSlug)) {
+        // If valid ObjectId, search and delete by _id
+        category = await Category.findByIdAndDelete(idOrSlug);
+    } else {
+        // Otherwise, search and delete by slug
+        category = await Category.findOneAndDelete({ slug: idOrSlug });
+    }
+
+    if (!category) {
+        throw new Error('Category not found');
+    }
+
+    return category;
+};
+
+// Update a category by ID or slug
+exports.updateCategoryByIdOrSlug = async (idOrSlug, updateData) => {
+    let category;
+
+    // Check if the idOrSlug is a valid ObjectId
+    if (mongoose.Types.ObjectId.isValid(idOrSlug)) {
+        // If valid ObjectId, search and update by _id
+        category = await Category.findByIdAndUpdate(idOrSlug, updateData, {
+            new: true, // Return the updated document
+            runValidators: true, // Ensure validation is run for updates
+        });
+    } else {
+        // Otherwise, search and update by slug
+        category = await Category.findOneAndUpdate({ slug: idOrSlug }, updateData, {
+            new: true,
+            runValidators: true,
+        });
+    }
+
+    if (!category) {
+        throw new Error('Category not found');
+    }
+
+    return category;
+};
